@@ -18,7 +18,7 @@ tippy('#toggle', {
     placement: 'right',
 });
 tippy('#bar-chart', {
-    content: "Graph defining some data over the year 2019-2021",
+    content: "Graph defining some data over the year 2019-2021. Bar graph summarises the large set of data in simple visual form. It displays each category of data in the frequency distribution. It clarifies the trend of data better than the table. It helps in estimating the key values at a glance.",
     placement: 'right',
     interactive: true,
     showOnCreate: false,
@@ -26,11 +26,9 @@ tippy('#bar-chart', {
     delay: 0,
 });
 tippy('#le', {
-    content: "<div id='inside-div'><h2>HTML element</h2></div>",
+    content: "<div id='inside-div'><h2>Can show HTML elements or images like screenshots too..</h2></div>",
     placement: 'right',
-    showOnCreate: false,
     allowHTML: true,
-    theme: 'light'
 });
 const closeButton = tippy('#close', {
     content: "Button to close the slide-out.",
@@ -64,7 +62,6 @@ $(document).ready(function () {
             $slideOut.addClass("slide-active");
             if (count == 0) {
                 setTimeout(function () {
-                    console.log("shit");
                     slideArea[0].show();
                     closeButton[0].show();
                 }, 1000);

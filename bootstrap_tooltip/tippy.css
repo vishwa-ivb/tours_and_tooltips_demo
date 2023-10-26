@@ -110,8 +110,10 @@ button {
 }
 
 #inside-div {
+    color: #333;
     height: 200px;
     width: 250px;
     border: #333;
     border-style: solid;
+    background-color: cornsilk;
 }

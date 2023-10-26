@@ -5,15 +5,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tour and Tooltip Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            width: 50%;
+            text-align: center;
+            padding: 20px;
+            display: grid;
+        }
+
+        #heading {
+            font-size: 30px;
+            margin: 25px;
+        }
+
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button a {
+            padding: 10px;
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        button:hover {
+            background-color: #bfc2c4;
+        }
+
+        button:hover a {
+            color: #333;
+        }
+    </style>
+    </style>
 </head>
 
 <body>
-    <button><a href="chardin_demo/example/index.html">Chardin Js</a></button>
-    <button><a href="bootstrap_tooltip/tippy.html">Tippy Js</a></button>
-    <button><a href="tourguide_demo/index.html">Tourguide Js</a></button>
-    <button><a href="bootstrap_tooltip/bootstrapTooltip.html">Bootstrap Tooltip</a></button>
-    <button><a href="tour_js/index.html">Tour Js</a></button>
-    <div id="content"></div>
+    <h1 id="heading">Tours and Tooltips Demo for Newly Added Features</h1>
+    <h3 style="margin: 0 35px;">Click the buttons to have a appropriate demo.</h3>
+    <div id="container">
+        <button><a href="chardin_demo/example/index.html">Chardin Js</a></button>
+        <button><a href="bootstrap_tooltip/tippy.html">Tippy Js</a></button>
+        <button><a href="tourguide_demo/index.html">Tourguide Js</a></button>
+        <button><a href="bootstrap_tooltip/bootstrapTooltip.html">Bootstrap Tooltip</a></button>
+        <button><a href="tour_js/index.html">Tour Js</a></button>
+        <button><a href="new_feature/new_feature_slide.html">Using Slide Out</a></button>
+        <button><a href="new_feature/index.html">Using "New" word</a></button>
+    </div>
 </body>
 
 </html>

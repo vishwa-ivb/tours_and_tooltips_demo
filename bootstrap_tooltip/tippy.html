@@ -21,7 +21,10 @@
       <div class="jumbotron">
         <a style="margin: 20px;" href="../index.html">Back to Home</a><br>
         <h1 id="app-name">My Application</h1>
-        <p id="le" class="lead"> Using Tippy Js to give web page tour for new users.</p>
+        <p id="le" class="lead"> Using Tippy Js to give web page tour for new users.
+          (Hovering(1.5 sec) on the element will show tooltip and clicking the image will show its tooltip).
+          Refresh to see the tooltips again.
+        </p>
         <form method="POST">
           <!-- Form elements go here -->
           <label for="Claim">Claim No:</label>
@@ -37,12 +40,13 @@
         </form>
         <br>
         <button id="toggle">Toggle Slide-Out</button>
+        <h3>Click the image and its tooltip is interactive(could copy its content).</h3>
         <img id="bar-chart" src="monthly_bar_graph_for_customer_complaints_slide01.jpg" />
       </div>
     </div>
     <div class="slide-out">
       <button id="close">Close</button>
-      <div id="slide-contents">Slide-Out Content</div>
+      <div id="slide-contents">Tool tips for this section will be shown only for the first time of opening slide out.</div>
     </div>
   </div>
   <script src="tippy.js"></script>

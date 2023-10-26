@@ -23,12 +23,20 @@
       <div class="jumbotron">
         <a style="margin: 20px;" href="../../index.html">Back to Home</a><br>
         <h1 data-intro="Project title" data-position="right">My Application</h1>
-        <p class="lead"> Using Chardin Js to give new elements description. </p>
+        <p class="lead"> Using Chardin Js to give new elements description.</p>
+        <a href="#" id="demo" class="btn btn-large primary" data-toggle="chardinjs"
+          data-intro="This button toggles the overlay, you can click it, even when the overlay is visible"
+          data-position="right">Show Demo</a><br><br>
+        <img src="img/monthly_bar_graph_for_customer_complaints_slide01.jpg"
+          data-intro="Graph defining some data over the year 2019-2021 (could show screenshots of demo here)"
+          data-position="right" />
+        <h3>Click below button to open slide out</h3>
+        <button data-intro="Button to open/close the slide-out." data-position="right" id="toggle">Toggle
+          Slide-Out</button>
         <form method="POST">
           <!-- Form elements go here -->
           <label for="Claim">Claim No:</label>
           <input type="text" id="claim" name="claim" required>
-
           <label for="User">Note Type:</label>
           <input type="user" id="user" name="user" required>
           <label for="comments">Comments:</label>
@@ -38,14 +46,6 @@
           <input type="submit" value="Submit">
         </form>
         <br>
-        <button data-intro="Button to open/close the slide-out." data-position="right" id="toggle">Toggle
-          Slide-Out</button>
-        <img src="img/monthly_bar_graph_for_customer_complaints_slide01.jpg"
-          data-intro="Graph defining some data over the year 2019-2021 (could show screenshots of demo here)"
-          data-position="right" />
-        <a href="#" id="demo" class="btn btn-large primary" data-toggle="chardinjs"
-          data-intro="This button toggles the overlay, you can click it, even when the overlay is visible"
-          data-position="right">Show Demo</a>
       </div>
     </div>
   </div>
@@ -77,6 +77,7 @@
         else {
           $content.addClass("active");
           $slideOut.addClass("slide-active");
+          $("html, body").animate({ scrollTop: 0 }, "slow");
           // if($('body').data('chardinJs').isStarted()){
           //   $('.content').data('chardinJs').hide();
           // }

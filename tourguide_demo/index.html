@@ -23,7 +23,9 @@
         <a style="margin: 20px;" href="../index.html">Back to Home</a>
         <a href="#" id="demo" class="btn btn-large primary">Show Tour</a><br>
         <h1 id="app-name">My Application</h1>
-        <p class="lead"> Using TourGuide Js to give web page tour for new users.</p>
+        <p class="lead"> Using TourGuide Js to give web page tour for new users.
+          Once you close the tour midway and start it again, it will be continue where you left
+        </p>
         <form method="POST">
           <!-- Form elements go here -->
           <label for="Claim">Claim No:</label>
@@ -44,7 +46,9 @@
     </div>
     <div class="slide-out">
       <button id="close">Close</button>
-      <div id="slide-contents">Slide-Out Content</div>
+      <div id="slide-contents">Tour for this section will NOT be shown all the time of opening slide out.
+        we limited it to show for first time only.
+      </div>
     </div>
   </div>
   <script src="index.js"></script>

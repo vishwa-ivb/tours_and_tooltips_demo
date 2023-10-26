@@ -59,7 +59,7 @@ let tg = new tourguide.TourGuideClient({
 
 //to use tour in feature for specific period of time
 
-const featureReleased = new Date("2023-10-16");
+const featureReleased = new Date("2023-10-25");
 const daysToShowTour = 3;
 
 const canShowTour = () => {
@@ -70,9 +70,9 @@ const canShowTour = () => {
   else {return false;}
 };
 
-if(canShowTour()){
+//if(canShowTour()){
   tg.start("home");
-}
+//}
 
 //other js functionalities
 
