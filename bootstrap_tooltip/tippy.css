@@ -1,0 +1,117 @@
+body {
+    overflow-x: hidden;
+}
+
+.jumbotron {
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.jumbotron h1 {
+    font-size: 50px;
+    font-family: Montserrat, sans-serif;
+    line-height: 1;
+    display: inline-block;
+    color: #444444;
+}
+
+.jumbotron h1.chardinjs-show-element {
+    color: #cccccc;
+}
+
+.chardinjs-show-element a {
+    color: rgba(77, 186, 240, 1);
+}
+
+.jumbotron .lead {
+    font-size: 24px;
+    line-height: 1.25;    
+    width: 480px;
+}
+
+.jumbotron img {
+    display: block;
+    max-height: 300px;
+}
+
+#demo {
+    font-size: 21px;
+    padding: 14px 24px;
+    margin: 20px;
+    margin-bottom: 10px;
+    color: #6495ed;
+}
+
+.links {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.links p,
+.credits p {
+    display: inline-block;
+}
+
+.credits,
+.license {
+    text-align: center;
+    margin: 10px;
+}
+
+.chardinjs-helper-layer[data-id="links"] .chardinjs-tooltip:after {
+    left: 10%;
+}
+
+
+.content {
+    width: 100%;
+}
+
+.slide-out {
+    width: 35%;
+    height: 100%;
+    background-color: #9e9c9c;
+    color: #fff;
+    position: fixed;
+    right: -36%;
+    top: 0;
+    transition: right 0.3s;
+}
+
+button {
+    display: block;
+    margin: 20px;
+}
+
+#close {
+    position: relative;
+    left: 75%;
+}
+
+.active {
+    width: 60%;
+}
+
+.slide-active {
+    right: 0;
+}
+
+#slide-contents {
+    height: 100%;
+    padding: 10px;
+    margin-top: 60px;
+    font-size: x-large;
+    font-weight: bold;
+    color: #333;
+}
+
+.tg-dialog .tg-dialog-footer {
+    padding: 0;
+}
+
+#inside-div {
+    height: 200px;
+    width: 250px;
+    border: #333;
+    border-style: solid;
+}

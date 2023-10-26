@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Chardin.js</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- styles -->
+  <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/demo.css" rel="stylesheet">
+  <link href="../chardinjs.css" rel="stylesheet">
+  <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="../chardinjs.min.js"></script>
+  <script src="js/demo.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="content">
+      <div class="jumbotron">
+        <a style="margin: 20px;" href="../../home.html">Back to Home</a><br>
+        <h1 data-intro="Project title" data-position="right">My Application</h1>
+        <p class="lead"> Using Chardin Js to give new elements description. </p>
+        <form method="POST">
+          <!-- Form elements go here -->
+          <label for="Claim">Claim No:</label>
+          <input type="text" id="claim" name="claim" required>
+
+          <label for="User">Note Type:</label>
+          <input type="user" id="user" name="user" required>
+          <label for="comments">Comments:</label>
+          <input placeholder="Enter Comments" data-intro="Newly Added - Comments to add with Note" data-position="right"
+            id="comments" name="comments" rows="3" required>
+          </input>
+          <input type="submit" value="Submit">
+        </form>
+        <br>
+        <button data-intro="Button to open/close the slide-out." data-position="right" id="toggle">Toggle
+          Slide-Out</button>
+        <img src="img/monthly_bar_graph_for_customer_complaints_slide01.jpg"
+          data-intro="Graph defining some data over the year 2019-2021 (could show screenshots of demo here)"
+          data-position="right" />
+        <a href="#" id="demo" class="btn btn-large primary" data-toggle="chardinjs"
+          data-intro="This button toggles the overlay, you can click it, even when the overlay is visible"
+          data-position="right">Show Demo</a>
+      </div>
+    </div>
+  </div>
+  <div class="slide-out">
+    <button data-intro="Button to close the slide-out." data-position="left" id="close">Close</button>
+    <p data-intro="slide-out to show important events in claims." data-position="bottom" style="
+        height: 200px;
+        padding: 10px;
+        margin-top: 60px;    
+        font-size: x-large;
+        font-weight: bold;
+        background-color: #fff;
+        color: #333;
+    ">Slide-Out Content</p>
+  </div>
+  <script>
+    //data-intro="slide-out to show important events in claims." data-position="left"
+    $(document).ready(function () {
+      const $toggleButton = $("#toggle");
+      const $closeButton = $("#close");
+      const $content = $(".content");
+      const $slideOut = $(".slide-out");
+
+      $toggleButton.on("click", function () {
+        if ($slideOut.hasClass("slide-active")) {
+          $content.removeClass("active");
+          $slideOut.removeClass("slide-active");
+        }
+        else {
+          $content.addClass("active");
+          $slideOut.addClass("slide-active");
+          // if($('body').data('chardinJs').isStarted()){
+          //   $('.content').data('chardinJs').hide();
+          // }
+        }
+      });
+
+      $closeButton.on("click", function () {
+        $content.removeClass("active");
+        $slideOut.removeClass("slide-active");
+        // if($('body').data('chardinJs').isStarted()){
+        //   $('.content').data('chardinJs').show();
+        // }
+      });
+    });
+  </script>
+</body>
+
+</html>

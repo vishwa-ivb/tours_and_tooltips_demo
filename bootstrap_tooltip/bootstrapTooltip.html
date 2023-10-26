@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Tooltip</title>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        form {
+            width: 50%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a style="margin: 20px;" href="../home.html">Back to Home</a><br>
+        <h1 data-bs-toggle="tooltip" data-bs-placement="right" title="Project Heading" style="width: fit-content;">
+            Attorney Management</h1>
+        <form>
+            <div class="form-group">
+                <label for="attorneyName" data-bs-toggle="tooltip" data-bs-placement="right"
+                    title="Enter the attorney name">Attorney Name:</label>
+                <input type="text" id="attorneyName" name="attorneyName" required>
+            </div>
+            <div class="form-group">
+                <label for="startDate" data-bs-toggle="tooltip" data-bs-placement="right"
+                    title="Select the attorney start date">Start Date:</label>
+                <input type="date" id="startDate" name="startDate">
+            </div>
+            <div class="form-group">
+                <label for="endDate" data-bs-toggle="tooltip" data-bs-placement="right"
+                    title="Select the attorney end date">End Date:</label>
+                <input type="date" id="endDate" name="endDate">
+            </div>
+            <div class="form-group">
+                <label for="attorneyStatus" data-bs-toggle="tooltip" data-bs-placement="right"
+                    title="Choose the attorney status">Status:</label>
+                <select id="attorneyStatus" name="attorneyStatus">
+                    <option value=""></option>
+                    <option value="in-progress">In Progress</option>
+                    <option value="completed">Verified</option>
+                    <option value="on-hold">On Hold</option>
+                </select>
+            </div>
+            <button type="submit" data-bs-toggle="tooltip" data-bs-placement="left"
+                title="Submit the attorney details">Submit</button>
+        </form>
+        <h2>Attorney List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th data-bs-toggle="tooltip" data-bs-placement="top" title="Attorney Name">Attorney Name</th>
+                    <th data-bs-toggle="tooltip" data-bs-placement="top" title="Start Date">Start Date</th>
+                    <th data-bs-toggle="tooltip" data-bs-placement="top" title="End Date">End Date</th>
+                    <th data-bs-toggle="tooltip" data-bs-placement="top" title="Status">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Attorney 1</td>
+                    <td>2023-01-15</td>
+                    <td>2023-02-28</td>
+                    <td>In Progress</td>
+                </tr>
+                <tr>
+                    <td>Attorney 2</td>
+                    <td>2023-03-10</td>
+                    <td>2023-04-20</td>
+                    <td>Verified</td>
+                </tr>
+                <tr>
+                    <td>Attorney 3</td>
+                    <td>2023-05-05</td>
+                    <td>2023-06-15</td>
+                    <td>On Hold</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            let tooltip = new bootstrap.Tooltip(tooltipTriggerEl);
+            tooltip.show();
+            setTimeout(function () { tooltip.hide() }, 3000);
+            return tooltip;
+        });
+    </script>
+
+</body>
+
+</html>

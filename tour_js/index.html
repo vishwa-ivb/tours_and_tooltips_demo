@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Tour Demo</title>
+    <style>
+        .city {
+            float: left;
+            margin: 5px;
+            padding: 15px;
+            max-width: 300px;
+            height: 300px;
+            border: 1px solid black;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="tour.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="jumbotron">
+                <a style="margin: 20px;" href="../home.html">Back to Home</a><br>
+                <h1 id="app-name" data-tour-index="1" data-tour-title="App Name"
+                    data-tour-description="Name of the Application.">My Application</h1>
+                <p id="le" class="lead"> Using Tippy Js to give web page tour for new users.</p>
+                <form method="POST">
+                    <!-- Form elements go here -->
+                    <label for="Claim">Claim No:</label>
+                    <input type="text" id="claim" name="claim" required><br><br>
+                    <label for="User">Note Type:</label>
+                    <input type="user" id="user" name="user" required><br><br>
+                    <div id="comments" data-tour-index="2" data-tour-title="Comments"
+                        data-tour-description="Comment feature to add while note creation" style="width: 270px;">
+                        <label for="comments">Comments:</label>
+                        <input placeholder="Enter Comments" name="comments" rows="3" required></input>
+                    </div>
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+                <br>
+                <button id="toggle" data-tour-index="3" data-tour-title="Toggle Button"
+                    data-tour-description="Button to open/close the slide-out.">Toggle Slide-Out</button>
+                <br>
+                <button id="start-tour" class="btn btn-primary">Start Tour</button><br>
+                <br>
+                <img id="bar-chart" data-tour-index="4" data-tour-title="Bar Chart"
+                    data-tour-description="Graph defining some data over the year 2019-2021. Bar graph summarises the large set of data in simple visual form. It displays each category of data in the frequency distribution. It clarifies the trend of data better than the table. It helps in estimating the key values at a glance."
+                    src="monthly_bar_graph_for_customer_complaints_slide01.jpg" />
+            </div>
+        </div>
+        <div class="slide-out">
+            <button id="close">Close</button>
+            <div id="slide-contents">Slide-Out Content</div>
+        </div>
+    </div>
+    <!-- Include jQuery 3.x -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <!-- Include the page tour library -->
+    <script src="js/tour.js"></script>
+
+    <!-- Instantiate the page tour library -->
+    <script>
+        // Instantiate the actual page tour object.
+        var PageTour;
+        try {
+            PageTour = $.fn.PageTour();
+        } catch (e) {
+            console.error('Cannot start page tour: ', e);
+        }
+
+        //to use tour in feature for specific period of time
+
+        const featureReleased = new Date("2023-10-25");
+        const daysToShowTour = 3;
+
+        const canShowTour = () => {
+            const today = new Date();
+            let targetDay = new Date();
+            targetDay = new Date(targetDay.setDate(featureReleased.getDate() + daysToShowTour));
+            if (today <= targetDay) { return true; }
+            else { return false; }
+        };
+
+        //if (canShowTour()) {
+            $('#start-tour').on('click', PageTour.open);
+        //}
+    </script>
+</body>
+
+</html>

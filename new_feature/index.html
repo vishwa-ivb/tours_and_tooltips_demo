@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Key Word</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .new-badge {
+            background-color: blue;
+            color: white;
+            border-radius: 10%;
+            text-align: center;
+            font-size: 8px;
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            padding: 2px;
+        }
+
+        .item {
+            position: relative;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        form {
+            width: 50%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <a style="margin: 20px;" href="../home.html">Back to Home</a><br>
+    <button id="addNewFeature">Add New Feature</button>
+    <div class="container">
+        <div style="position: relative; width: 500px;" class="new-item"><h1>Attorney Management</h1></div><br>
+        <form>
+            <div class="form-group">
+                <label class="new-item" for="attorneyName">Attorney
+                    Name:</label>
+                <input type="text" id="attorneyName" name="attorneyName" required>
+            </div>
+            <div class="form-group">
+                <label for="startDate" data-bs-placement="right" title="Select the attorney start date">Start
+                    Date:</label>
+                <input type="date" id="startDate" name="startDate">
+            </div>
+            <div class="form-group">
+                <label for="endDate" data-bs-placement="right" title="Select the attorney end date">End Date:</label>
+                <input type="date" id="endDate" name="endDate">
+            </div>
+            <div class="form-group">
+                <label class="new-item">Status:</label>
+                <select id="attorneyStatus" name="attorneyStatus">
+                    <option value=""></option>
+                    <option value="in-progress">In Progress</option>
+                    <option value="completed">Verified</option>
+                    <option value="on-hold">On Hold</option>
+                </select>
+            </div>
+            <button type="submit" title="Submit the attorney details">Submit</button>
+        </form>
+        <h2>Attorney List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Attorney Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Attorney 1</td>
+                    <td>2023-01-15</td>
+                    <td>2023-02-28</td>
+                    <td>In Progress</td>
+                </tr>
+                <tr>
+                    <td>Attorney 2</td>
+                    <td>2023-03-10</td>
+                    <td>2023-04-20</td>
+                    <td>Verified</td>
+                </tr>
+                <tr>
+                    <td>Attorney 3</td>
+                    <td>2023-05-05</td>
+                    <td>2023-06-15</td>
+                    <td>On Hold</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#addNewFeature').on('click', function () {
+                var $element = $('.new-item');
+                var $newBadge = $('<div class="new-badge">NEW</div>');
+                $element.append($newBadge);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Feature Slide out</title>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <!-- Tippy Js Libraries -->
+    <script src="https://unpkg.com/popper.js@1"></script>
+    <script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/backdrop.css" />
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@5/themes/light.css" />
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        .jumbotron {
+            margin-left: 50px;
+        }
+
+        .jumbotron h1 {
+            font-size: 50px;
+            font-family: Montserrat, sans-serif;
+            line-height: 1;
+            display: inline-block;
+            color: #444444;
+        }
+
+        .jumbotron h1.chardinjs-show-element {
+            color: #cccccc;
+        }
+
+        .chardinjs-show-element a {
+            color: rgba(77, 186, 240, 1);
+        }
+
+        .jumbotron .lead {
+            font-size: 24px;
+            line-height: 1.25;
+            width: 480px;
+        }
+
+        .jumbotron img {
+            display: block;
+            max-height: 300px;
+        }
+
+        #demo {
+            font-size: 21px;
+            padding: 14px 24px;
+            margin: 20px;
+            margin-bottom: 10px;
+            color: #6495ed;
+        }
+
+        .links {
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .links p,
+        .credits p {
+            display: inline-block;
+        }
+
+        .credits,
+        .license {
+            text-align: center;
+            margin: 10px;
+        }
+
+        .chardinjs-helper-layer[data-id="links"] .chardinjs-tooltip:after {
+            left: 10%;
+        }
+
+
+        .content {
+            width: 100%;
+        }
+
+        .slide-out {
+            width: 35%;
+            height: 100%;
+            background-color: #9e9c9c;
+            color: #fff;
+            position: fixed;
+            right: -36%;
+            top: 0;
+            transition: right 0.3s;
+        }
+
+        button {
+            display: block;
+            margin: 20px;
+        }
+
+        #close {
+            position: relative;
+            left: 75%;
+        }
+
+        .active {
+            width: 60%;
+        }
+
+        .slide-active {
+            right: 0;
+        }
+
+        #slide-contents {
+            height: 100%;
+            padding: 10px;
+            color: #333;
+        }
+
+        .tg-dialog .tg-dialog-footer {
+            padding: 0;
+        }
+
+        #inside-div {
+            height: 200px;
+            width: 250px;
+            border: #333;
+            border-style: solid;
+        }
+
+        .clickable-div {
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+            margin: 5px 0;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        /* Hover effect for clickable divs */
+        .clickable-div:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="jumbotron">
+                <h1 id="app-name">My Application</h1>
+                <p id="le" class="lead"> Using Slide out and tippy js to give web page tour for new users.</p>
+                <button id="toggle">Toggle Slide-Out</button>
+                <form method="POST">
+                    <!-- Form elements go here -->
+                    <label for="Claim">Claim No:</label>
+                    <input type="text" id="claim" name="claim" required><br><br>
+                    <label for="User">Note Type:</label>
+                    <input type="user" id="user" name="user" required><br><br>
+                    <div id="comments" style="width: 250px;">
+                        <label for="comments">Comments:</label>
+                        <input placeholder="Enter Comments" name="comments" rows="3" required></input>
+                    </div>
+                    <br><br>
+                    <input type="submit" value="Submit">
+                </form>
+                <br>
+                <img id="bar-chart" src="monthly_bar_graph_for_customer_complaints_slide01.jpg" />
+            </div>
+        </div>
+        <div class="slide-out">
+            <button id="close">Close</button>
+            <div id="slide-contents">
+                <h3><u>Newly Added Features:</u></h3>
+                <div class="clickable-div" data-target="app-name">Application Name</div>
+                <div class="clickable-div" data-target="comments">Comments</div>
+                <div class="clickable-div" data-target="bar-chart">Bar Chart</div>
+                <div class="clickable-div" data-target="toggle">Slide Toggle Button</div>
+                <div class="clickable-div" data-target="close">Slide Close Button</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const $toggleButton = $("#toggle");
+        const $closeButton = $("#close");
+        const $content = $(".content");
+        const $slideOut = $(".slide-out");
+
+        $toggleButton.on("click", function () {
+            if ($slideOut.hasClass("slide-active")) {
+                $content.removeClass("active");
+                $slideOut.removeClass("slide-active");
+            }
+            else {
+                $content.addClass("active");
+                $slideOut.addClass("slide-active");
+            }
+        });
+        $closeButton.on("click", function () {
+            $content.removeClass("active");
+            $slideOut.removeClass("slide-active");
+        });
+        const myMap = new Map();
+        //default tippy settings
+        tippy.setDefaultProps({
+            delay: [2000, 0],
+        });
+
+        myMap.set("app-name", tippy('#app-name', {
+            content: "Name of the Application.",
+            placement: 'right',
+        }));
+        myMap.set("comments", tippy('#comments', {
+            content: "Comment feature to add while note creation",
+            placement: 'right',
+        }));
+        myMap.set("toggle", tippy('#toggle', {
+            content: "Button to open/close the slide-out.",
+            placement: 'right',
+        }));
+        myMap.set("bar-chart", tippy('#bar-chart', {
+            content: "Graph defining some data over the year 2019-2021. Bar graph summarises the large set of data in simple visual form. It displays each category of data in the frequency distribution. It clarifies the trend of data better than the table. It helps in estimating the key values at a glance.",
+            placement: 'right',
+            interactive: true,
+            showOnCreate: false,
+            trigger: 'click',
+            delay: 0,
+        }));
+        myMap.set("le", tippy('#le', {
+            content: "<div id='inside-div'><h2>HTML element</h2></div>",
+            placement: 'right',
+            showOnCreate: false,
+            allowHTML: true,
+            theme: 'light'
+        }));
+        myMap.set("close", tippy('#close', {
+            content: "Button to close the slide-out.",
+            placement: 'left',
+            showOnCreate: false,
+            theme: 'light'
+        }));
+
+        // Handle clicks on clickable divs
+        $(".clickable-div").on("click", function () {
+            const targetId = $(this).data("target");
+            const targetDiv = $("#" + targetId);
+            let tippyVar = myMap.get(targetId);
+            console.log(tippyVar);
+            tippyVar[0].show();
+
+            if (targetDiv.length > 0) {
+                // Scroll to the target div
+                $("html, body").animate({
+                    scrollTop: targetDiv.offset().top
+                }, 500);
+            }
+
+            // Close the slide-out
+
+            // $content.removeClass("active");
+            // $slideOut.removeClass("slide-active");
+        });
+    </script>
+</body>
+
+</html>

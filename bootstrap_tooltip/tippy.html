@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tippy Tooltip</title>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+    <!-- Tippy Js Libraries -->
+    <script src="https://unpkg.com/popper.js@1"></script>
+    <script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script>
+    
+	<link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/backdrop.css" />
+	<link rel="stylesheet" href="https://unpkg.com/tippy.js@5/themes/light.css" />
+
+    <link href="tippy.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <div class="jumbotron">
+        <a style="margin: 20px;" href="../home.html">Back to Home</a><br>
+        <h1 id="app-name">My Application</h1>
+        <p id="le" class="lead"> Using Tippy Js to give web page tour for new users.</p>
+        <form method="POST">
+          <!-- Form elements go here -->
+          <label for="Claim">Claim No:</label>
+          <input type="text" id="claim" name="claim" required><br><br>
+          <label for="User">Note Type:</label>
+          <input type="user" id="user" name="user" required><br><br>
+          <div id="comments" style="width: 250px;">
+            <label for="comments">Comments:</label>
+            <input placeholder="Enter Comments" name="comments" rows="3" required></input>
+          </div>
+          <br><br>
+          <input type="submit" value="Submit">
+        </form>
+        <br>
+        <button id="toggle">Toggle Slide-Out</button>
+        <img id="bar-chart" src="monthly_bar_graph_for_customer_complaints_slide01.jpg" />
+      </div>
+    </div>
+    <div class="slide-out">
+      <button id="close">Close</button>
+      <div id="slide-contents">Slide-Out Content</div>
+    </div>
+  </div>
+  <script src="tippy.js"></script>
+</body>
+</html>
